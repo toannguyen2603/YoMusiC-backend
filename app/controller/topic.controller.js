@@ -6,12 +6,13 @@ module.exports = {
     createTopic: (req, res) => {
         try {
             // get request body
-            const {nameTopic, imageTopic} = req.body;
+            const {name,title, image} = req.body;
 
              // create new topic
             const newTopic = new Topic({
-                nameTopic,
-                imageTopic
+                name,
+                title,
+                image
             });
 
             // save topic
@@ -56,8 +57,8 @@ module.exports = {
     //  delete one
     deleteOne: async (req, res) => {
         try {
-            let user = await Topic.findById(req.params.id);
-            await user.delete();
+            let topic = await Topic.findById(req.params.id);
+            await topic.delete();
             res.status(200).json("Topic deleted successfully");
         } catch (err) {
             res.status(500).json(err);

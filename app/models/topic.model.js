@@ -3,14 +3,19 @@ const Schema = mongoose.Schema;
 
 const topicSchema = new Schema(
     {
-        nameTopic: {
+        name: {
             type: String,
             required: true,
             trim: true,
             min: 3,
-            max:20,
+            max:50,
         },
-        imageTopic: {
+        title:{
+            type: String,
+            required: true,
+            trim: true,
+        },
+        image: {
             type: String,
         }
     }, { timestamps: true },
