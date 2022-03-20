@@ -6,6 +6,9 @@ const connectDB = require('./app/config/database');
 
 const topicRouters = require("./app/routers/topic");
 const categoryRouters = require("./app/routers/category");
+const albumRouters = require("./app/routers/album");
+
+
 var bodyParser = require("body-parser");
 
 const PORT = process.env.PORT || 8000;
@@ -25,6 +28,7 @@ connectDB();
 
 app.use("/api", topicRouters);
 app.use("/api", categoryRouters);
+app.use("/api", albumRouters);
 
 
 app.listen(PORT, () => {
