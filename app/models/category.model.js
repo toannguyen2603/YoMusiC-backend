@@ -3,11 +3,12 @@ const Schema = mongoose.Schema;
 
 const categorySchema = new Schema(
     {
-        topic_id: {
+        topic_id:{
             type: mongoose.Schema.Types.ObjectId,
             ref: "Topic",
             require: true,
-        }, 
+        }
+        , 
         name: {
             type: String,
             required: true,

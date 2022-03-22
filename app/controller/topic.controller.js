@@ -1,5 +1,5 @@
 const Topic = require('../models/topic.model');
-
+const Category = require('../models/category.model');
 // TODO: add new a topic
 
 module.exports = {

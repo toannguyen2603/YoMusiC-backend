@@ -5,7 +5,8 @@ const Album = require('../models/album.model');
 
 module.exports = {
     createAlbum: async (req, res) => {
-        // get attribute of category
+        
+        // get attribute of album
         const { name ,artists_name , thumbnail} = req.body;
         try {
             const album = new Album({
@@ -14,14 +15,14 @@ module.exports = {
                 thumbnail
             })
 
-            // save category in database
+            // save album in database
             album.save();
             return res.status(201).json({ album: album, message: "Create new album successfully" });
         } catch (err) {
             res.status(500).json(err);
         }
     },
-      // get all info of the topic
+      // get all info of the album
       getAllAlbum: async (req, res) => {
         try {
             let albums = await Album.find();
@@ -30,7 +31,7 @@ module.exports = {
             res.status(500).json(err);
         }
     },
-    // get one info of the topic
+    // get one info of the album
       getOne: async (req, res) => {
         try {
             let album = await Album.findById(req.params.id);

@@ -1,15 +1,15 @@
 const Category = require('../models/category.model');
 
-
 // TODO: create a category music
 
 module.exports = {
     createCategory: async (req, res) => {
-        // get attribute of category
-        const { topic_id, name , thumbnail} = req.body;
+        // get attribute of category 
+        const { topic_id , name , thumbnail} = req.body;
         try {
             const category = new Category({
                 topic_id,
+                name_topic: Category.find({topic_id: {$in: Category}}),
                 name,
                 thumbnail
             })
@@ -21,7 +21,7 @@ module.exports = {
             res.status(500).json(err);
         }
     },
-      // get all info of the topic
+      // get all info of the category
       getAllCategory: async (req, res) => {
         try {
             let categories = await Category.find();
@@ -30,11 +30,14 @@ module.exports = {
             res.status(500).json(err);
         }
     },
-    // get one info of the topic
+
+    // get one info of the category
       getOne: async (req, res) => {
         try {
             let cate = await Category.findById(req.params.id);
-            res.status(200).json(cate);
+            // let a = Category.find({topic_id: {$in: Category}})
+
+            res.status(200).json(cate); 
         } catch (err) {
             res.status(500).json(err);
             console.log(error);
@@ -59,5 +62,14 @@ module.exports = {
             res.status(500).json(err);
         }
     },
+
+    getCategoryWithTopic:async(req, res) => {
+        try {
+            let cate = await Category.find().populate('topic_id')
+            res.status(200).json(cate); 
+        } catch (error) {
+            res.status(500).json(error);
+        }
+    } 
 
 }
