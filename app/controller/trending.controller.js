@@ -68,8 +68,8 @@ module.exports = {
      //  get one
      getSong: async (req, res) => {
         try {
-            let songMerge = await Trending.find().populate('song_id');
-            res.status(200).json({msg: "Trending merge successfully", songMerge});
+            let songs = await Trending.find().populate("song_id");
+            res.status(200).json({msg: "Trending merge successfully", songs});
         } catch (err) {
             res.status(500).json(err);
         }
