@@ -2,9 +2,8 @@
   "name": "yomusic-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "node index.js",
+  "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
