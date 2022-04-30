@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 // mongodb+srv://yoMusic:yomusic123456@yomusic.qxzsf.mongodb.net/YoMusic
 const connectDB = async () => {
     try {
-        await mongoose.connect(``,
+        await mongoose.connect(`mongodb+srv://yoMusic:yomusic123456@yomusic.oz27e.mongodb.net/YoMusic`,
             {
                 useNewUrlParser: true,
                 useUnifiedTopology: true,
