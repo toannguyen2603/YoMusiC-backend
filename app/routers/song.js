@@ -6,6 +6,6 @@ const {createSong, getAllSong , getMostLikeSong} = require("../controller/song.c
 
 router.post("/createSong", createSong);
 router.get("/getAllSong", getAllSong);
-router.get("/getMostLikeSong",getMostLikeSong)
+router.get("/getMostLikeSong",getMostLikeSong);
 
 module.exports = router;

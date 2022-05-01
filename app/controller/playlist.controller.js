@@ -1,6 +1,6 @@
+const { json } = require('express/lib/response');
 const PlayList = require('../models/playlist.model');
-
-
+const Song = require('../models/song.model');
 // TODO: create a play list music
 
 module.exports = {
@@ -31,6 +31,22 @@ module.exports = {
             res.status(500).json(err);
         }
     },
+    // get all info of the play list
+    getSongPlayList: async (req, res) => {
+                try {   
+                    let playlists = await PlayList.aggregate([
+                        { $lookup: {
+                            from: 'songs',
+                            localField: '_id',
+                            foreignField: 'playlist_id',
+                            as: 'songs'
+                        }},
+                   ]);
+                    res.status(200).json(playlists);
+                } catch (error) {
+                    res.status(500).json(error);
+                }
+            },
     // get one info of the play list
       getOne: async (req, res) => {
         try {

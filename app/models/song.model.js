@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const trendingSchema = new Schema(
+const songSchema = new Schema(
     {
         name_song: {
             type: String,
@@ -44,4 +44,4 @@ const trendingSchema = new Schema(
     }, { timestamps: true },
 );
 
-module.exports = mongoose.model("Song", trendingSchema);
+module.exports = mongoose.model("Song", songSchema);
