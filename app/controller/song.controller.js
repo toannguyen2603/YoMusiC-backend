@@ -40,5 +40,16 @@ module.exports = {
      } catch (error) {
          res.status(500).json(error)
      }
+    },
+
+    getMostLikeSong: async (req, res) => {
+
+        try{
+            let songsLike  = await Song.find({like : {$gt: 1}}).limit(5);
+            res.status(200).json(songsLike);
+        } catch (error) {
+            res.status(500).json(error)
+        }
+        
     }
 }
