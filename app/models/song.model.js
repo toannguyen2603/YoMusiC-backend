@@ -36,6 +36,10 @@ const trendingSchema = new Schema(
             type:String,
             required: true,
             trim: true
+        },
+        like: {
+            type:String,
+            trim: true
         }
     }, { timestamps: true },
 );
