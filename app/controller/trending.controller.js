@@ -66,7 +66,7 @@ module.exports = {
     },
 
      //  get one
-     getSong: async (req, res) => {
+     getSongInTrending: async (req, res) => {
         try {
             let trending = await Trending.find().populate("song_id");
             res.status(200).json(trending);

@@ -52,15 +52,7 @@ module.exports = {
         }
 
     }, 
-        // get all info of the play list
-        getSongPlayList: async (req, res) => {
-            try {
-                let playlists = await Song.find().populate("playlist_id");
-                res.status(200).json(playlists);
-            } catch (error) {
-                res.status(500).json(err);
-            }
-        },
+
 
 
 }

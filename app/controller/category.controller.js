@@ -9,7 +9,6 @@ module.exports = {
         try {
             const category = new Category({
                 topic_id,
-                name_topic: Category.find({topic_id: {$in: Category}}),
                 name,
                 thumbnail
             })
