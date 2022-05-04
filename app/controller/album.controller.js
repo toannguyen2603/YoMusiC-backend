@@ -60,5 +60,20 @@ module.exports = {
             res.status(500).json(err);
         }
     },
+    getAllSongInAlbum: async(req, res) => {
+        try {
+            let albums = await Album.aggregate([
+                { $lookup: {
+                    from: 'songs',
+                    localField: '_id',
+                    foreignField: 'album_id',
+                    as: 'songs'
+                }},
+           ]);
+            res.status(200).json(albums);
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    }
 
 }
