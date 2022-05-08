@@ -6,14 +6,13 @@ module.exports = {
     createTopic: (req, res) => {
         try {
             // get request body
-            const {name,title, image, playlist_id} = req.body;
+            const {name,title, image} = req.body;
 
              // create new topic
             const newTopic = new Topic({
                 name,
                 title,
                 image,
-                playlist_id
             });
 
             // save topic
@@ -46,14 +45,14 @@ module.exports = {
             console.log(error);
         }
     },
-    getSongForTopic: async (req, res) => {
+    getCategoryForTopic: async (req, res) => {
         try {   
             let topics = await Topic.aggregate([
                 { $lookup: {
-                    from: 'songs',
+                    from: 'categories',
                     localField: '_id',
                     foreignField: 'topic_id',
-                    as: 'songs'
+                    as: 'categories'
                 }},
            ]);
             res.status(200).json(topics);
@@ -61,6 +60,7 @@ module.exports = {
             res.status(500).json(error);
         }
     },
+
       //   update one
       updateOne: async (req, res) => {
         try {
