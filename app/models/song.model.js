@@ -19,6 +19,11 @@ const songSchema = new Schema(
             type: mongoose.Schema.Types.ObjectId,
             ref: "PlayList",
             require: true,
+        }, 
+        topic_id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Topic",
+            require: true,
         },
         artists: {
             type: String,

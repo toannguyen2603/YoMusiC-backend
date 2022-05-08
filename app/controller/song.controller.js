@@ -10,7 +10,7 @@ const Song = require('../models/song.model');
 module.exports = {
     createSong: async (req, res) => {
 
-        const { name_song, album_id, title, artists, thumbnail, playlist_id,category_id, link, like} = req.body;
+        const { name_song, album_id, title, artists, thumbnail, playlist_id,category_id, link, like, topic_id} = req.body;
 
         try {
             const items = new Song({
@@ -22,6 +22,7 @@ module.exports = {
                 album_id,
                 playlist_id,
                 category_id,
+                topic_id,
                 like
             });
 

@@ -46,16 +46,21 @@ module.exports = {
             console.log(error);
         }
     },
-     //  get one
-     getPLayListInTopic: async (req, res) => {
-        try {
-            let category = await Category.find().populate("playlist_id");
-            res.status(200).json(category);
-        } catch (err) {
-            res.status(500).json(err);
+    getSongForTopic: async (req, res) => {
+        try {   
+            let topics = await Topic.aggregate([
+                { $lookup: {
+                    from: 'songs',
+                    localField: '_id',
+                    foreignField: 'topic_id',
+                    as: 'songs'
+                }},
+           ]);
+            res.status(200).json(topics);
+        } catch (error) {
+            res.status(500).json(error);
         }
     },
-
       //   update one
       updateOne: async (req, res) => {
         try {

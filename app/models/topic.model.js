@@ -17,11 +17,6 @@ const topicSchema = new Schema(
         },
         image: {
             type: String,
-        },
-        playlist_id: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "PlayList",
-            require: true,
         }
     }, { timestamps: true },
 );
