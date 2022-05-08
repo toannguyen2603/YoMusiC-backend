@@ -23,7 +23,7 @@ module.exports = {
       // get all info of the category
       getAllCategory: async (req, res) => {
         try {
-            let categories = await Category.find();
+            let categories = await Category.find().limit(4);
             res.status(200).json(categories);
         } catch (error) {
             res.status(500).json(err);
@@ -51,6 +51,15 @@ module.exports = {
             res.status(500).json(err);
         }
     },
+     //  get one
+     getTopicInCategory: async (req, res) => {
+        try {
+            let category = await Category.find().populate("topic_id");
+            res.status(200).json(category);
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    },
     //  delete one
     deleteOne: async (req, res) => {
         try {
@@ -70,5 +79,7 @@ module.exports = {
             res.status(500).json(error);
         }
     } 
+
+
 
 }

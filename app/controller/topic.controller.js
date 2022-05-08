@@ -6,13 +6,14 @@ module.exports = {
     createTopic: (req, res) => {
         try {
             // get request body
-            const {name,title, image} = req.body;
+            const {name,title, image, playlist_id} = req.body;
 
              // create new topic
             const newTopic = new Topic({
                 name,
                 title,
-                image
+                image,
+                playlist_id
             });
 
             // save topic
@@ -29,7 +30,7 @@ module.exports = {
     // get all info of the topic
     getAllTopic: async (req, res) => {
         try {
-            let topics = await Topic.find();
+            let topics = await Topic.find().limit(4);
             res.status(200).json(topics);
         } catch (error) {
             res.status(500).json(err);
@@ -45,6 +46,16 @@ module.exports = {
             console.log(error);
         }
     },
+     //  get one
+     getPLayListInTopic: async (req, res) => {
+        try {
+            let category = await Category.find().populate("playlist_id");
+            res.status(200).json(category);
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    },
+
       //   update one
       updateOne: async (req, res) => {
         try {
