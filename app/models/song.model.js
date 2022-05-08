@@ -20,11 +20,6 @@ const songSchema = new Schema(
             ref: "PlayList",
             require: true,
         }, 
-        topic_id: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Topic",
-            require: true,
-        },
         artists: {
             type: String,
         },

@@ -14,6 +14,11 @@ const categorySchema = new Schema(
             required: true,
             trim: true
         },
+        title: {
+            type: String,
+            require: true,
+            trim: true
+        },
         thumbnail: {
             type: String,
             required: true

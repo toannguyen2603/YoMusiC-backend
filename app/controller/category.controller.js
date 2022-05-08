@@ -5,11 +5,12 @@ const Category = require('../models/category.model');
 module.exports = {
     createCategory: async (req, res) => {
         // get attribute of category 
-        const { topic_id , name , thumbnail} = req.body;
+        const { topic_id , name ,title, thumbnail} = req.body;
         try {
             const category = new Category({
                 topic_id,
                 name,
+                title,
                 thumbnail
             })
 
