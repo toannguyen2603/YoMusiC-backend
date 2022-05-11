@@ -22,7 +22,6 @@ module.exports = {
                 album_id,
                 playlist_id,
                 category_id,
-        
                 like
             });
 

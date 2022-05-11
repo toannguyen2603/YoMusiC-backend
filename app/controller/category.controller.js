@@ -43,6 +43,23 @@ module.exports = {
             console.log(error);
         }
     },
+
+    getSongCategory: async (req, res) => {
+        try {   
+            let categories = await Category.aggregate([
+                { $lookup: {
+                    from: 'songs',
+                    localField: '_id',
+                    foreignField: 'category_id',
+                    as: 'songs'
+                }},
+           ]);
+            res.status(200).json(categories);
+        } catch (error) {
+            res.status(500).json(error);
+        }
+    },
+
       //   update one
       updateOne: async (req, res) => {
         try {
