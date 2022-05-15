@@ -53,6 +53,35 @@ module.exports = {
 
     }, 
 
+    updateLikeForSong: async(req, res) => {
+        try {
+            await Song.findByIdAndUpdate(
+                {_id: req.params.id},
+                {$set: {like: req.query}}
+            )
+            res.status(200).json("Update like success");
 
+        } catch(error) {
+            res.status(500).json(error);
+        }
+    
+    },
+
+    searchByKeywords: async(req, res) => {
+        try {
+
+            let text = Object.values(req.query)[0]
+
+            await Song.createIndexes({ name_song: "text"})
+
+            let search = await Song.find({
+                $text: {$search: text }
+            })
+
+            res.status(200).json(search);
+        } catch(error) {
+            res.status(500).json(error)
+        }
+    }
 
 }
