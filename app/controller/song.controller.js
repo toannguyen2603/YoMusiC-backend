@@ -80,7 +80,7 @@ module.exports = {
             await Song.createIndexes({ name_song: "text"})
 
             let search = await Song.find({
-                $text: {$search: req.params.name }
+                $text: {$search: req.body.name_song }
             })
 
             res.status(200).json(search);
