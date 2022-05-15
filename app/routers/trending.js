@@ -9,7 +9,7 @@ router.get("/getAllTrending", getAllTrending);
 router.get("/getOneTrending/:id",getOne);
 router.patch("/updateOneTrending/:id",updateOne);
 router.delete("/deleteOneTrending/:id",deleteOne);
-router.get("/getSongInTrending",getSongInTrending);
+router.get("/getSongInTrending/:name",getSongInTrending);
 
 
 module.exports = router;

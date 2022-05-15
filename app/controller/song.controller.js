@@ -75,12 +75,12 @@ module.exports = {
     searchByKeywords: async(req, res) => {
         try {
 
-            let text =  await Object.values(req.query)[0]
+            // let text =  await Object.values(req.query)[0]
 
             await Song.createIndexes({ name_song: "text"})
 
             let search = await Song.find({
-                $text: {$search: text }
+                $text: {$search: req.params.name }
             })
 
             res.status(200).json(search);
