@@ -61,7 +61,7 @@ module.exports = {
             
             await Song.findByIdAndUpdate(
                 {_id: req.params.id},
-                {$set: { like: (parseInt(Object.values(Object.values(x)[2])[0]) + parseInt(Object.values(req.query)[0])).toString() }}
+                {$set: { like: (parseInt(Object.values(Object.values(x)[2])[0]) + parseInt(req.body.like)).toString() }}
             )
             res.status(200).json("Update like success");
 
@@ -76,7 +76,6 @@ module.exports = {
         try {
 
             // let text =  await Object.values(req.query)[0]
-
             await Song.createIndexes({ name_song: "text"})
 
             let search = await Song.find({
