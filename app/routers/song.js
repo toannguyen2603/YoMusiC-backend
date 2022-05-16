@@ -7,7 +7,7 @@ const {createSong, getAllSong , getMostLikeSong, updateLikeForSong, searchByKeyw
 router.post("/createSong", createSong);
 router.get("/getAllSong", getAllSong);
 router.get("/getMostLikeSong",getMostLikeSong);
-router.patch("/updateLikeForSong/:id", updateLikeForSong);
+router.patch("/updateLikeForSong", updateLikeForSong);
 router.post("/searchByKeywords", searchByKeywords);
 
 module.exports = router;
