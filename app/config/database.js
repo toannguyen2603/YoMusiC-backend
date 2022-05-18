@@ -1,8 +1,6 @@
 require("dotenv").config();
 
 const mongoose = require('mongoose');
-// await mongoose.connect(`mongodb+srv://${process.env.MONGOOSE_USER}:${process.env.MONGOOSE_PASSWORD}@yomusic.oz27e.mongodb.net/${process.env.MONGOOSE_DATABASE}`,
-// mongodb+srv://yoMusic:yomusic123456@yomusic.qxzsf.mongodb.net/YoMusic
 const connectDB = async () => {
     try {
         await mongoose.connect(`mongodb+srv://yoMusic:yomusic123456@yomusic.oz27e.mongodb.net/YoMusic`,
