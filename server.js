@@ -10,6 +10,7 @@ const albumRouters = require("./app/routers/album");
 const trendingRouters = require("./app/routers/trending");
 const playListRouters = require("./app/routers/playlist");
 const songRouters = require("./app/routers/song");
+const iotSensor = require("./app/routers/iot")
 
 
 var bodyParser = require("body-parser");
@@ -35,6 +36,7 @@ app.use("/api", albumRouters);
 app.use("/api", trendingRouters);
 app.use("/api", playListRouters);
 app.use("/api", songRouters);
+app.use("/iot", iotSensor);
 
 
 
