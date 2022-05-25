@@ -12,7 +12,7 @@ const playListRouters = require("./app/routers/playlist");
 const songRouters = require("./app/routers/song");
 const iotSensor = require("./app/routers/iot");
 const valueSensor = require("./app/routers/sensor");
-
+const cors = require("cors");
 
 
 var bodyParser = require("body-parser");
@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // parse application/json
 app.use(bodyParser.json());
-
+app.use(cors());
 app.get('/' , (req , res)=> {
    res.send('hello from simple server :)')
 });
