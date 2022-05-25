@@ -1,5 +1,6 @@
 const iot = require("../models/iot");
 
+
 const getSensorInformation = async (req, res, next) => {
     try {
         const results = await iot.find();
